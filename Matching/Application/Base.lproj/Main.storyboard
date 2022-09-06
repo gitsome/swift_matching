@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bn2-hH-dmC">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Matching" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNL-qn-f3L">
+                                <rect key="frame" x="15" y="693" width="384" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Play 12 Card Match">
+                                    <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="play12ButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="osP-Ug-zh3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6U-ol-dwV">
+                                <rect key="frame" x="15" y="751" width="384" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Play 16 Card Match">
+                                    <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="play12ButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EhG-Rb-XS4"/>
+                                    <action selector="play16ButtonAPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nb2-05-iDz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkh-hC-EQP">
+                                <rect key="frame" x="15" y="809" width="384" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Play 24 Card Match">
+                                    <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="play24ButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X6t-tk-FGD"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xaN-1f-6bN">
+                                <rect key="frame" x="15" y="88" width="384" height="549.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 0 cards. You need at least 6 cards to start playing." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3A1-jD-So0">
+                                        <rect key="frame" x="0.0" y="239" width="384" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eds-MI-Xh9">
+                                        <rect key="frame" x="135" y="290" width="114" height="33.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="+ Add Cards">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addCardsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gQd-0m-xLM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Eds-MI-Xh9" firstAttribute="top" secondItem="3A1-jD-So0" secondAttribute="bottom" constant="10" id="3dU-0W-3IR"/>
+                                    <constraint firstAttribute="trailing" secondItem="3A1-jD-So0" secondAttribute="trailing" id="Cd6-J5-atM"/>
+                                    <constraint firstItem="Eds-MI-Xh9" firstAttribute="centerX" secondItem="xaN-1f-6bN" secondAttribute="centerX" id="GTo-AT-b3u"/>
+                                    <constraint firstItem="3A1-jD-So0" firstAttribute="centerY" secondItem="xaN-1f-6bN" secondAttribute="centerY" constant="-15" id="aNU-kf-0ga"/>
+                                    <constraint firstItem="3A1-jD-So0" firstAttribute="leading" secondItem="xaN-1f-6bN" secondAttribute="leading" id="cDk-DI-eYv"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match image with name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwz-So-sBF">
+                                <rect key="frame" x="15" y="652.5" width="181" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nuq-T4-JzM">
+                                <rect key="frame" x="345" y="647" width="51" height="31"/>
+                            </switch>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xaN-1f-6bN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="1I4-hL-Q1r"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r6U-ol-dwV" secondAttribute="trailing" constant="15" id="2tM-Xe-8Lk"/>
+                            <constraint firstItem="dkh-hC-EQP" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-10" id="3El-N8-bFb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="xaN-1f-6bN" secondAttribute="top" id="BEk-9j-Grx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lNL-qn-f3L" secondAttribute="trailing" constant="15" id="Em9-6e-Yb6"/>
+                            <constraint firstItem="dkh-hC-EQP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="F6P-yy-ncX"/>
+                            <constraint firstItem="Lwz-So-sBF" firstAttribute="centerY" secondItem="nuq-T4-JzM" secondAttribute="centerY" id="HFG-6B-0tO"/>
+                            <constraint firstItem="lNL-qn-f3L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="L1H-sG-8cN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nuq-T4-JzM" secondAttribute="trailing" constant="20" id="Npf-ti-u4b"/>
+                            <constraint firstItem="lNL-qn-f3L" firstAttribute="top" secondItem="nuq-T4-JzM" secondAttribute="bottom" constant="15" id="Que-fO-CLi"/>
+                            <constraint firstItem="r6U-ol-dwV" firstAttribute="top" secondItem="lNL-qn-f3L" secondAttribute="bottom" constant="15" id="TSe-vz-uGj"/>
+                            <constraint firstItem="Lwz-So-sBF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="bT9-eM-DXd"/>
+                            <constraint firstItem="r6U-ol-dwV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="fD3-uP-MME"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dkh-hC-EQP" secondAttribute="trailing" constant="15" id="fRp-2b-Ac6"/>
+                            <constraint firstItem="Lwz-So-sBF" firstAttribute="top" secondItem="xaN-1f-6bN" secondAttribute="bottom" constant="15" id="hMl-t2-PS5"/>
+                            <constraint firstItem="dkh-hC-EQP" firstAttribute="top" secondItem="r6U-ol-dwV" secondAttribute="bottom" constant="15" id="ir9-oA-Jd3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xaN-1f-6bN" secondAttribute="trailing" constant="15" id="sf1-3k-sFZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="u5w-NB-lU9"/>
+                    <connections>
+                        <outlet property="addCardsButton" destination="Eds-MI-Xh9" id="7FI-uS-8Ui"/>
+                        <outlet property="instructionsLabel" destination="3A1-jD-So0" id="SXM-qG-VcR"/>
+                        <outlet property="matchByCaptionSwitch" destination="nuq-T4-JzM" id="9XL-w1-0w4"/>
+                        <outlet property="play12Button" destination="lNL-qn-f3L" id="ohS-nd-euT"/>
+                        <outlet property="play16Button" destination="r6U-ol-dwV" id="uyt-x4-WDx"/>
+                        <outlet property="play24Button" destination="dkh-hC-EQP" id="Ptb-NP-iKx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RK5-ch-kcm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bn2-hH-dmC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A4D-NW-2cm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="tLN-Jp-MhR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFU-bp-TGO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
