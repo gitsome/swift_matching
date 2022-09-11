@@ -20,7 +20,7 @@ class GameOverView: UIView {
     private let container: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = .white
+        v.backgroundColor = .systemBackground
         v.layer.cornerRadius = 24
         v.layer.shadowColor = UIColor.black.cgColor
         v.layer.shadowOpacity = 0.3
@@ -202,7 +202,7 @@ class GameOverView: UIView {
         
         let emitLayer = CAEmitterLayer()
         emitLayer.emitterPosition = CGPoint(x: frame.width / 2, y: 0)
-        emitLayer.scale = 0.1
+        emitLayer.scale = 0.25
         emitLayer.beginTime = CACurrentMediaTime();
         
         let colors: [UIColor] = winningPlayers.compactMap({
@@ -214,9 +214,9 @@ class GameOverView: UIView {
             the_color in
             
             let cell = CAEmitterCell()
-            cell.lifetime = 2
-            cell.duration = 1
-            cell.birthRate = 30
+            cell.lifetime = 3
+            cell.duration = 2
+            cell.birthRate = 40
             cell.beginTime = 0.01
             cell.velocity = 300
             cell.contents = UIImage(named:"confetti")!.cgImage

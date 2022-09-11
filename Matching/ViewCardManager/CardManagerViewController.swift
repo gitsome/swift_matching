@@ -21,7 +21,7 @@ class CardManagerViewController: UIViewController, UICollectionViewDelegate, UIC
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Card", style: .plain, target: self, action: #selector(editCardNavPressed))
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
@@ -55,6 +55,7 @@ class CardManagerViewController: UIViewController, UICollectionViewDelegate, UIC
             messageLabel.textAlignment = .center;
             messageLabel.sizeToFit()
             collectionView.backgroundView = messageLabel;
+            collectionView.backgroundColor = .systemBackground
         }
     }
 

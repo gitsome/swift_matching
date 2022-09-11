@@ -62,7 +62,7 @@ class GameViewController: UIViewController {
     override func loadView() {
         super.loadView()
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         self.view = view
     }
     
@@ -98,11 +98,14 @@ class GameViewController: UIViewController {
     }
 
     override func viewWillLayoutSubviews () {
+        print("viewWillLayoutSubviews")
         super.viewWillLayoutSubviews()
         activateOrientationConstraints()
     }
     
     override func viewDidLayoutSubviews () {
+        print("viewDidLayoutSubviews")
+        // we need to make sure the constraints from the main layout of this screen are in place before we layout the game cards within the gamePanel view
         layoutGameCards()
         super.viewDidLayoutSubviews()
     }
@@ -309,7 +312,7 @@ class GameViewController: UIViewController {
         } else {
             playersStackView.axis = .horizontal
         }
-        
+                
         // order matters or we get a constraint warning
         // deactivate first, then activate
         if isLandscape {
@@ -323,14 +326,16 @@ class GameViewController: UIViewController {
         
     func layoutGameCards () {
                 
+        let isLandscape = getScreenOrientation() == SCREEN_ORIENTATION.LANDSCAPE
+        
         var cardsPerRow = LAYOUT_CONFIGS["PORTRAIT"]![totalCards]!["rows"]!
         var cardsPerCol = LAYOUT_CONFIGS["PORTRAIT"]![totalCards]!["cols"]!
         
-        if UIDevice.current.orientation.isLandscape {
+        if isLandscape  {
             cardsPerRow = LAYOUT_CONFIGS["LANDSCAPE"]![totalCards]!["rows"]!
             cardsPerCol = LAYOUT_CONFIGS["LANDSCAPE"]![totalCards]!["cols"]!
         }
-        
+                
         let marginSize = CGFloat(10.0)
         
         let maxWidth = gamePanel.frame.width
@@ -346,7 +351,7 @@ class GameViewController: UIViewController {
            
         let marginX = (maxWidth - CGFloat(cardsPerRow) * maxCardSize - (CGFloat(cardsPerRow) - 1.0) * marginSize) / 2
         let marginY = (maxHeight - CGFloat(cardsPerCol) * maxCardSize - (CGFloat(cardsPerCol) - 1.0) * marginSize) / 2
-        
+                
         let chunkedCardViews = cardViews.chunked(into: cardsPerRow)
         
         // load the cardViews
@@ -365,11 +370,11 @@ class GameViewController: UIViewController {
         playerScores[playerNum] = playerScores[playerNum] + 1
         updateScoreLabels()
         
-        let playerScorePosition = playerViews[playerNum].globalPoint()!
-        
+        let playerView = playerViews[playerNum]
+                
         let layer = CAEmitterLayer()
-        layer.emitterPosition = CGPoint(x: playerScorePosition.x, y: playerScorePosition.y)
-        layer.scale = 0.1
+        layer.emitterPosition = CGPoint(x: playerView.playerScoreLabel.center.x, y: playerView.playerScoreLabel.center.y)
+        layer.scale = 0.15
         
         layer.beginTime = CACurrentMediaTime();
         
@@ -398,7 +403,7 @@ class GameViewController: UIViewController {
         
         layer.emitterCells = cells
         
-        view.layer.addSublayer(layer)
+        playerView.layer.insertSublayer(layer, at: UInt32(playerView.layer.sublayers?.count ?? 0))
         
         playCorrectSound()
         
@@ -482,11 +487,11 @@ class GameViewController: UIViewController {
                                     self.gamePanel.bringSubviewToFront(cardView)
                                     
                                     let cardGlobalPoint = cardView.globalPoint()!
-                                    let playerGlobalPoint = self.playerViews[self.currentPlayer].globalPoint()!
+                                    let playerGlobalPoint = self.playerViews[self.currentPlayer].playerScoreLabel.globalPoint()!
                                     
                                     let originalTransform = cardView.transform
                                     let finalTransform = originalTransform.translatedBy(x: playerGlobalPoint.x - cardGlobalPoint.x, y: playerGlobalPoint.y - cardGlobalPoint.y).scaledBy(x: 0.1, y: 0.1)
-                                    
+                                                                        
                                     UIView.animate(withDuration: 0.3, animations: {
                                         cardView.transform = finalTransform
                                         cardView.layer.opacity = 0

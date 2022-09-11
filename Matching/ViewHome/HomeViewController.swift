@@ -42,6 +42,8 @@ class HomeViewController: UIViewController {
         
         loadImageCards()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit cards", style: .plain, target: self, action: #selector(showCardManagementView))
+        
+        view.backgroundColor = .systemBackground
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -44,15 +44,12 @@ class CardFrontCaptionView: UIView {
             captionLabel.translatesAutoresizingMaskIntoConstraints = false
             addSubview(captionLabel)
             
-            captionLabel.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+            captionLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9).isActive = true
+            captionLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.9).isActive = true
             captionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
             captionLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         }
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        captionLabel?.frame = CGRect(x: frame.size.width * 0.05, y: frame.size.width * 0.05, width: frame.size.width * 0.9, height: frame.size.width * 0.9)
-    }
+
 }
 

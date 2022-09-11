@@ -10,7 +10,7 @@ import UIKit
 class PlayerView: UIView {
             
     private var playerNameLabel: UILabel!
-    private var playerScoreLabel: UILabel!
+    public var playerScoreLabel: UILabel!
     private var isActive = false
     
     let playerNum: Int

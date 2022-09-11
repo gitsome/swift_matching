@@ -43,10 +43,18 @@ class CardFrontView: UIView {
         if let imagesPath = imagesPath {
             imageView?.image = UIImage(contentsOfFile: imagesPath.path)
         }
+        
+        imageView?.translatesAutoresizingMaskIntoConstraints = false
+        imageView?.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9).isActive = true
+        imageView?.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.9).isActive = true
+        imageView?.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        imageView?.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        imageView?.frame = CGRect(x: frame.size.width * 0.05, y: frame.size.width * 0.05, width: frame.size.width * 0.9, height: frame.size.width * 0.9)
-    }
+//    an example of doing custom layout without constaints
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        imageView?.frame = CGRect(x: frame.size.width * 0.05, y: frame.size.width * 0.05, width: frame.size.width * 0.9, height: frame.size.width * 0.9)
+//    }
 }

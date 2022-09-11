@@ -13,7 +13,7 @@ class CardView: UIView {
     let onPress: (CardView) -> Void
     var isFrontShowing = false
     let cardViewId: String!
-    
+        
     private var cardFrontView: UIView!
     private var cardBackView: CardBackView!
     
@@ -21,7 +21,7 @@ class CardView: UIView {
         self.card = card
         self.onPress = onPress
         self.cardViewId = UUID().uuidString
-        super.init(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+        super.init(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         setupView()
     }
     
@@ -48,8 +48,22 @@ class CardView: UIView {
         
         // setup card back view
         cardBackView = CardBackView(frame: frame)
+        cardBackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(cardBackView)
-                
+        
+        NSLayoutConstraint.activate([
+
+            cardFrontView.topAnchor.constraint(equalTo: topAnchor),
+            cardFrontView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            cardFrontView.leftAnchor.constraint(equalTo: leftAnchor),
+            cardFrontView.rightAnchor.constraint(equalTo: rightAnchor),
+            
+            cardBackView.topAnchor.constraint(equalTo: topAnchor),
+            cardBackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            cardBackView.leftAnchor.constraint(equalTo: leftAnchor),
+            cardBackView.rightAnchor.constraint(equalTo: rightAnchor)
+        ])
+            
         // setup tap handler
         self.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
@@ -75,11 +89,5 @@ class CardView: UIView {
     public func showCard (_ withDelay: CGFloat = 0.1) {
         isFrontShowing = true
         perform(#selector(flip), with: nil, afterDelay: withDelay)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        cardFrontView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.width)
-        cardBackView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.width)
     }
 }

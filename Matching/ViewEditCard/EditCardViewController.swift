@@ -39,7 +39,7 @@ class EditCardViewController: UIViewController, UINavigationControllerDelegate, 
     override func loadView() {
         super.loadView()
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         self.view = view
     }
     
@@ -139,6 +139,7 @@ class EditCardViewController: UIViewController, UINavigationControllerDelegate, 
         captionText.placeholder = "Give a name"
         captionText.text = card.caption
         captionText.textAlignment = .left
+        captionText.backgroundColor = .systemBackground
         view.addSubview(captionText)
         // constraints
         captionText.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
