@@ -8,7 +8,7 @@
 import UIKit
 
 let PLAYER_COLORS = [
-    0: UIColor.systemBlue,
-    1: UIColor.systemGreen,
+    0: UIColor.systemGreen,
+    1: UIColor.systemBlue,
     2: UIColor.systemOrange
 ]

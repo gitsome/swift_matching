@@ -20,7 +20,7 @@ class GameOverView: UIView {
     private let container: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = .systemBackground
+        v.backgroundColor = .systemGray5
         v.layer.cornerRadius = 24
         v.layer.shadowColor = UIColor.black.cgColor
         v.layer.shadowOpacity = 0.3

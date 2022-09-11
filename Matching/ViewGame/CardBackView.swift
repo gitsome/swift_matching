@@ -19,7 +19,7 @@ class CardBackView: UIView {
     }
         
     func setupView() {
-        backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+        backgroundColor = .systemGray5
         clipsToBounds = true
         layer.cornerRadius = 10
         layer.borderColor = UIColor.lightGray.cgColor

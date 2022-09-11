@@ -50,7 +50,6 @@ class CardManagerViewController: UIViewController, UICollectionViewDelegate, UIC
         if let collectionView = collectionView {
             let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height))
             messageLabel.text = message
-            messageLabel.textColor = .black
             messageLabel.numberOfLines = 0;
             messageLabel.textAlignment = .center;
             messageLabel.sizeToFit()

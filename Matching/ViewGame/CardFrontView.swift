@@ -28,9 +28,9 @@ class CardFrontView: UIView {
         // root view styles
         clipsToBounds = true
         layer.cornerRadius = 10
-        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderColor = UIColor.systemGray.cgColor
         layer.borderWidth = 1
-        layer.backgroundColor = UIColor.white.cgColor
+        layer.backgroundColor = UIColor.systemGray6.cgColor
         
         // load the image view
         imageView = UIImageView()

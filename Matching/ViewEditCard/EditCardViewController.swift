@@ -170,7 +170,7 @@ class EditCardViewController: UIViewController, UINavigationControllerDelegate, 
         
         imageHolder = UIView()
         imageHolder.translatesAutoresizingMaskIntoConstraints = false
-        imageHolder.backgroundColor = .lightGray
+        imageHolder.backgroundColor = .systemGray5
         imageHolder.layer.cornerRadius = 5
         view.addSubview(imageHolder)
         imageHolder.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor).isActive = true
@@ -190,7 +190,7 @@ class EditCardViewController: UIViewController, UINavigationControllerDelegate, 
         if card.imageFileName == nil {
             
             let config = UIImage.SymbolConfiguration(pointSize: 128, weight: .light, scale: .default)
-            let cameraIcon = UIImage(systemName: "camera.metering.unknown", withConfiguration: config)
+            let cameraIcon = UIImage(systemName: "camera.metering.unknown", withConfiguration: config)?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
             
             if let cameraIcon = cameraIcon {
                 cardImageView.image = cameraIcon

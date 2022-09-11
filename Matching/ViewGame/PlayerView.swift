@@ -65,9 +65,9 @@ class PlayerView: UIView {
             playerNameLabel.textColor = .white
             playerScoreLabel.textColor = PLAYER_COLORS[playerNum]
         } else {
-            playerNameLabel.backgroundColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.0)
-            playerNameLabel.textColor = .lightGray
-            playerScoreLabel.textColor = .lightGray
+            playerNameLabel.backgroundColor = .systemGray4
+            playerNameLabel.textColor = .systemGray
+            playerScoreLabel.textColor = .systemGray
         }
     }
     
@@ -76,7 +76,6 @@ class PlayerView: UIView {
         playerNameLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
         playerNameLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         playerNameLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        
         
         playerScoreLabel.topAnchor.constraint(equalTo: playerNameLabel.bottomAnchor, constant: 5).isActive = true
         playerScoreLabel.centerXAnchor.constraint(equalTo: playerNameLabel.centerXAnchor).isActive = true
